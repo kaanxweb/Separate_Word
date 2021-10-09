@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Word separator</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <form action="operation.php" method="POST">
+        <div class="main">
+            <h1 class="text-center">Word separator</h1>
+
+                <textarea name="word_list" placeholder="Write Your Word"></textarea>
+                <h2>Choice for your word</h2>
+            <br>
+                <div class="choice">
+                    <label for="small_word">Small Word</label>
+                    <input type="radio" id="small_word" name="choice" value="small_word">
+                    <label for="big_word">Big Word</label>
+                    <input type="radio" name="choice" id="big_word" value="big_word">
+                    <label for="capital_letter_word">Capital Letter Word</label>
+                    <input type="radio" name="choice" id="capital_letter_word" value="capital_letter_word">
+
+                    <label for="just_separate">Just Separate Word</label>
+                    <input type="radio" name="choice" id="just_separate" value="just_separate">
+                </div>
+                <hr>
+                <h2>Select Your separator</h2>
+            <br>
+                <div class="choice">
+                    <label for="space">" "</label>
+                    <input type="radio" id="space" name="separator" value="space">
+                    <label for="vertical_line">" | "</label>
+                    <input type="radio" name="separator" id="vertical_line" value="vertical_line">
+                    <label for="and">" & "</label>
+                    <input type="radio" name="separator" id="and" value="and">
+                    <label for="myself">I will write it myself</label>
+                    <input type="radio" name="separator" id="myself" value="myself">
+                </div>
+                <h2>Or Write Your separator</h2>
+                <textarea class="separator" name="another_separator" placeholder="Write Your Separator (If you have already chosen, dont write separator.)"></textarea>
+
+            <button type="submit" name="separator_words">Submit Data</button>
+        </div>
+    </form>
+    <footer>
+        <center>
+        <h1>Github: kaanxweb</h1>
+        </center>
+    </footer>
+
+<script src="js/app.js"></script>
+</body>
+
+</html>
