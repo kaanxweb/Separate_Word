@@ -33,13 +33,17 @@
                     <input type="radio" name="separator" id="vertical_line" value="vertical_line">
                     <label for="and">" & "</label>
                     <input type="radio" name="separator" id="and" value="and">
+                    <label for="line_break">Line Break</label>
+                    <input type="radio" name="separator" id="line_break" value="line_break">
                     <label for="myself">I will write it myself</label>
                     <input type="radio" name="separator" id="myself" value="myself">
                 </div>
                 <h2>Or Write Your separator</h2>
-                <textarea class="separator" name="another_separator" placeholder="Write Your Separator (If you have already chosen, dont write separator.)"></textarea>
-
-            <button type="submit" name="separator_words">Submit Data</button>
+                <textarea style="margin-bottom: 50px" class="separator" name="another_separator" placeholder="Write Your Separator (If you have already chosen, dont write separator.)"></textarea>
+                <br>
+            <button type="submit" name="print_data">Print Data</button>
+            <button type="submit" name="print_with_pre">Print Data (with &lt;pre&gt;Tag&lt;/pre&gt;) </button>
+            <button type="submit" name="download_json">Download Json</button>
         </div>
     </form>
     <footer>

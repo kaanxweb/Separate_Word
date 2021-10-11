@@ -3,27 +3,12 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-
-
-
-
 <?php
 
 
 
-if (isset($_POST['separator_words']) && isset($_POST['word_list']) > 0 && isset($_POST['choice']) && isset($_POST['separator'])){
-
+if (isset($_POST['word_list']) > 0 && isset($_POST['choice']) && isset($_POST['separator'])){
     $words = $_POST['word_list'];
-
-
-
-    echo "<hr>";
-    echo "<div class='button_list'>";
-    echo "<a href='download_json.php' class='button'>Download JSON</a>";
-    echo "</div>";
-    echo "<hr>";
-
-
 
     //Word Choice Operation
     switch ($_POST['choice']){
@@ -36,7 +21,7 @@ if (isset($_POST['separator_words']) && isset($_POST['word_list']) > 0 && isset(
             break;
 
         case 'capital_letter_word':
-            $words = ucwords($words);
+            $words = mb_convert_case($words, MB_CASE_TITLE, "UTF-8");
             break;
 
         case 'just_separate':
@@ -74,23 +59,27 @@ if (isset($_POST['separator_words']) && isset($_POST['word_list']) > 0 && isset(
             case 'and':
                 $words = explode("&", $words);
                 break;
+
+            case 'line_break':
+                $words = explode("\n", $words);
+                break;
         }
     }
 
-
-
-    echo "<pre>";
-    print_r($words);
-    echo "</pre>";
-    die();
-
-
-
-
-
-
-
-
+    if (isset($_POST['download_json'])){
+        $words = json_encode($words);
+        header('Content-Type: application/json');
+        header('Content-Disposition: attachment; filename=data.json');
+        file_put_contents('php://output', $words);
+    }
+    else if (isset($_POST['print_data'])){
+        print_r($words);
+    }
+    else if (isset($_POST['print_with_pre'])){
+        echo "<pre>";
+        print_r($words);
+        echo "</pre>";
+    }
 }
 
 
